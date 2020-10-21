@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 darkTheme(context) {
   return ThemeData(
-    fontFamily: 'GoogleSansRegular',
+    //fontFamily: 'GoogleSansRegular',
     primarySwatch: Colors.blue,
     primaryColor: Colors.black,
     accentColor: Colors.blue,
@@ -19,7 +19,7 @@ darkTheme(context) {
 
 lightTheme(context) {
   return ThemeData(
-    fontFamily: 'GoogleSansRegular',
+    //fontFamily: 'GoogleSansRegular',
     primarySwatch: Colors.blue,
     primaryColor: Colors.white,
     accentColor: Colors.blue,
