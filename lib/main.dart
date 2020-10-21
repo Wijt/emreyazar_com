@@ -1,4 +1,8 @@
+import 'package:emreyazar_com/pages/home_page.dart';
 import 'package:flutter/material.dart';
+import 'config/themes.dart';
+
+import 'widgets/theme_inherited_widget.dart';
 
 void main() {
   runApp(MyApp());
@@ -7,6 +11,23 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return ThemeSwitcherWidget(
+      initialDarkModeOn: true,
+      child: WijtApp(),
+    );
+  }
+}
+
+class WijtApp extends StatelessWidget {
+  const WijtApp({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: "Hoş geldiniz",
+      theme: ThemeSwitcher.of(context).isDarkModeOn ? darkTheme(context) : lightTheme(context),
+      home: HomePage(),
+    );
   }
 }
