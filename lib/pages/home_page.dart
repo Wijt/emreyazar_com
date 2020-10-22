@@ -150,6 +150,17 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            child: FlatButton(
+              child: Text(
+                "created by iamfurkan",
+                style: TextStyle(fontSize: 10, color: Colors.white70, fontFamily: 'Inconsolata', fontWeight: FontWeight.w700),
+              ),
+              onPressed: () => html.window.open("https://iamfurkan.com", 'iamfurkan'),
+            ),
+          ),
         ],
       ),
     );
