@@ -3,6 +3,7 @@ import 'dart:html';
 import 'package:emreyazar_com/config/constants.dart';
 import 'package:emreyazar_com/widgets/theme_inherited_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 // ignore: avoid_web_libraries_in_flutter
 import 'dart:html' as html;
@@ -89,12 +90,37 @@ class _HomePageState extends State<HomePage> {
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(
-                                      "Ben Emre, Uçak Teknisyeniyim, Yatırımcıyım, Geliştiriciyim,\nradyo programcısıyım. Çoğu insan gibi temel hobiler diyebileceğimiz;\nyüzme, basketbol ve kitap okuma gibi hobilere sahibim.",
-                                      maxLines: 4,
-                                      style:
-                                          TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
-                                      textAlign: TextAlign.left,
+                                    Row(
+                                      mainAxisSize: MainAxisSize.min,
+                                      children: [
+                                        Text(
+                                          "Ben Emre, ",
+                                          maxLines: 4,
+                                          style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 15,
+                                            height: 1.3,
+                                            fontFamily: 'Inconsolata',
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                          textAlign: TextAlign.left,
+                                        ),
+                                        Text(
+                                          "Be",
+                                          style: TextStyle(fontSize: 43.0),
+                                        ),
+                                        SizedBox(width: 20.0, height: 100.0),
+                                        ScaleAnimatedTextKit(
+                                          onTap: () {
+                                            print("Tap Event");
+                                          },
+                                          text: ["Think", "Build", "Ship"],
+                                          textStyle: TextStyle(fontSize: 70.0, fontFamily: "Inconsolata"),
+                                          textAlign: TextAlign.start,
+                                          alignment: AlignmentDirectional.topStart // or Alignment.topLeft
+                                          ,
+                                        ),
+                                      ],
                                     ),
                                     SizedBox(
                                       height: 10,
@@ -176,48 +202,5 @@ class _HomePageState extends State<HomePage> {
       icon: Image.asset(iconPath),
       onPressed: () => html.window.open(link, 'emreyazar'),
     );
-    /*
-    FlatButton.icon(
-      hoverColor: ThemeSwitcher.of(context).isDarkModeOn ? Colors.indigo[900] : Colors.black12,
-      splashColor: ThemeSwitcher.of(context).isDarkModeOn ? Colors.black : Colors.white,
-      icon: SizedBox(width: 26, height: 26, child: Image.asset(iconPath)),
-      onPressed: () => html.window.open(link, 'emreyazar'),
-    );*/
   }
 }
-
-/*Stack(
-        children: <Widget>[
-          Positioned(
-            top: 0,
-            left: 0,
-            child: Container(
-              height: 30,
-              width: 30,
-              color: Colors.white,
-            ),
-          ),
-          Positioned(
-            top: 0,
-            right: 0,
-            child: Text("resume"),
-          ),
-          Positioned(
-            bottom: 0,
-            left: 0,
-            child: Container(
-              color: Colors.white,
-              child: Row(
-                children: <Widget>[
-                  Container(
-                    height: 200,
-                    width: 2,
-                    decoration: BoxDecoration(gradient: Constants.colorfulLine),
-                  ),
-                  Text("loremadfasdfasdfasdfsdpgjas şdkgja lşkdsjfşlaksdjf şlaksdjflşkasd jalskşdf"),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),*/
