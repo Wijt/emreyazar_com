@@ -38,7 +38,7 @@ class _HomePageState extends State<HomePage> {
                   FlatButton(
                     hoverColor: Colors.white12,
                     child: Text(
-                      "resume",
+                      "english",
                       style: TextStyle(fontSize: 20, color: Colors.white70, fontFamily: 'Inconsolata', fontWeight: FontWeight.w700),
                     ),
                     onPressed: () => {},
@@ -58,12 +58,12 @@ class _HomePageState extends State<HomePage> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Text(
-                          "welcome.",
+                          "hoş geldiniz.",
                           style: TextStyle(
                             color: Colors.white54,
                             fontFamily: 'Jura',
                             fontWeight: FontWeight.w200,
-                            height: 0.9,
+                            height: 1.2,
                             fontSize: 85,
                           ),
                           textAlign: TextAlign.left,
@@ -87,9 +87,10 @@ class _HomePageState extends State<HomePage> {
                                 ),
                                 Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPraesent at auctor purus. Praesent et neque ex. \nNunc non est dapibus, aliquam ante sed, sollicitudin velit.\nCras eu lectus turpis. ",
+                                      "Ben Emre, Uçak Teknisyeniyim, Yatırımcıyım, Geliştiriciyim,\nradyo programcısıyım. Çoğu insan gibi temel hobiler diyebileceğimiz;\nyüzme, basketbol ve kitap okuma gibi hobilere sahibim.",
                                       maxLines: 4,
                                       style:
                                           TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
@@ -99,11 +100,10 @@ class _HomePageState extends State<HomePage> {
                                       height: 10,
                                     ),
                                     Text(
-                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPraesent at auctor purus. Praesent et neque ex. \nNunc non est dapibus, aliquam ante sed, sollicitudin velit.\nCras eu lectus turpis. ",
+                                      "Her zaman gelişime inanmış ve kendini\ngeliştirmeyi başarı saymış bir insanım.",
                                       maxLines: 4,
                                       style:
                                           TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
-                                      textAlign: TextAlign.left,
                                     ),
                                   ],
                                 ),
