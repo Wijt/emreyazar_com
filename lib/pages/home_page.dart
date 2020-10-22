@@ -25,14 +25,16 @@ class _HomePageState extends State<HomePage> {
   Widget bigScreen() {
     return Padding(
       padding: EdgeInsets.only(left: 180, top: 90, right: 180, bottom: 80),
-      child: Column(
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Stack(
+        children: [
+          Positioned(
+            child: Image.asset(Constants.logo),
+          ),
+          Column(
             children: <Widget>[
-              SizedBox(height: 65, child: Image.asset(Constants.logo)),
               Row(
-                children: [
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: <Widget>[
                   FlatButton(
                     hoverColor: Colors.white12,
                     child: Text(
@@ -48,60 +50,62 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-            ],
-          ),
-          Expanded(
-            child: Row(
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
+              Expanded(
+                child: Row(
                   children: [
-                    Text(
-                      "welcome.",
-                      style: TextStyle(
-                        color: Colors.white54,
-                        fontFamily: 'Jura',
-                        fontWeight: FontWeight.w200,
-                        height: 0.9,
-                        fontSize: 85,
-                      ),
-                      textAlign: TextAlign.left,
-                    ),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Row(
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
+                      children: [
+                        Text(
+                          "welcome.",
+                          style: TextStyle(
+                            color: Colors.white54,
+                            fontFamily: 'Jura',
+                            fontWeight: FontWeight.w200,
+                            height: 0.9,
+                            fontSize: 85,
+                          ),
+                          textAlign: TextAlign.left,
+                        ),
+                        SizedBox(
+                          height: 15,
+                        ),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Container(
-                              height: 200,
-                              width: 2,
-                              decoration: BoxDecoration(gradient: Constants.colorfulLine),
-                            ),
-                            SizedBox(
-                              width: 10,
-                            ),
-                            Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text(
-                                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPraesent at auctor purus. Praesent et neque ex. \nNunc non est dapibus, aliquam ante sed, sollicitudin velit.\nCras eu lectus turpis. ",
-                                  maxLines: 4,
-                                  style: TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
-                                  textAlign: TextAlign.left,
+                                Container(
+                                  height: 200,
+                                  width: 2,
+                                  decoration: BoxDecoration(gradient: Constants.colorfulLine),
                                 ),
                                 SizedBox(
-                                  height: 10,
+                                  width: 10,
                                 ),
-                                Text(
-                                  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPraesent at auctor purus. Praesent et neque ex. \nNunc non est dapibus, aliquam ante sed, sollicitudin velit.\nCras eu lectus turpis. ",
-                                  maxLines: 4,
-                                  style: TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
-                                  textAlign: TextAlign.left,
+                                Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPraesent at auctor purus. Praesent et neque ex. \nNunc non est dapibus, aliquam ante sed, sollicitudin velit.\nCras eu lectus turpis. ",
+                                      maxLines: 4,
+                                      style:
+                                          TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.\nPraesent at auctor purus. Praesent et neque ex. \nNunc non est dapibus, aliquam ante sed, sollicitudin velit.\nCras eu lectus turpis. ",
+                                      maxLines: 4,
+                                      style:
+                                          TextStyle(color: Colors.white70, fontSize: 15, height: 1.3, fontFamily: 'Inconsolata', fontWeight: FontWeight.w500),
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
@@ -109,42 +113,42 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ],
                     ),
+                    Spacer(
+                      flex: 2,
+                    ),
+                    Container(
+                      height: 150,
+                      width: 150,
+                      child: Stack(
+                        children: [
+                          Positioned(
+                            left: 0,
+                            top: 0,
+                            child: socialMediaButtons(name: "instagram", iconPath: Constants.instagram, link: "https://www.instagram.com/razayerme/"),
+                          ),
+                          Positioned(
+                            right: 0,
+                            top: 0,
+                            child: socialMediaButtons(name: "twitter", iconPath: Constants.twitter, link: "https://twitter.com/razayerme/"),
+                          ),
+                          Positioned(
+                            left: 0,
+                            bottom: 0,
+                            child: socialMediaButtons(name: "linkedin", iconPath: Constants.linkedin, link: "https://www.linkedin.com/in/razayerme/"),
+                          ),
+                          Positioned(
+                            right: 0,
+                            bottom: 0,
+                            child: socialMediaButtons(name: "mail", iconPath: Constants.mail, link: "me@emreyazar.com"),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Spacer(),
                   ],
                 ),
-                Spacer(
-                  flex: 2,
-                ),
-                Container(
-                  height: 200,
-                  width: 200,
-                  child: Stack(
-                    children: [
-                      Positioned(
-                        left: 0,
-                        top: 0,
-                        child: socialMediaButtons(name: "instagram", iconPath: Constants.instagram, link: "https://www.instagram.com/razayerme/"),
-                      ),
-                      Positioned(
-                        right: 0,
-                        top: 0,
-                        child: socialMediaButtons(name: "twitter", iconPath: Constants.twitter, link: "https://twitter.com/razayerme/"),
-                      ),
-                      Positioned(
-                        left: 0,
-                        bottom: 0,
-                        child: socialMediaButtons(name: "linkedin", iconPath: Constants.linkedin, link: "https://www.linkedin.com/in/eyazar8/"),
-                      ),
-                      Positioned(
-                        right: 0,
-                        bottom: 0,
-                        child: socialMediaButtons(name: "mail", iconPath: Constants.mail, link: "me@emreyazar.com"),
-                      ),
-                    ],
-                  ),
-                ),
-                Spacer(),
-              ],
-            ),
+              ),
+            ],
           ),
         ],
       ),
@@ -157,7 +161,7 @@ class _HomePageState extends State<HomePage> {
 
   Widget socialMediaButtons({String name, String link, String iconPath}) {
     return IconButton(
-      iconSize: 65,
+      iconSize: 50,
       icon: Image.asset(iconPath),
       onPressed: () => html.window.open(link, 'emreyazar'),
     );
