@@ -45,7 +45,7 @@ Widget turkishParagraph() {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  AutoSizeText(
                     "Ben Emre, ",
                     maxLines: 4,
                     softWrap: true,
@@ -56,6 +56,8 @@ Widget turkishParagraph() {
                       fontFamily: 'Inconsolata',
                       fontWeight: FontWeight.w500,
                     ),
+                    minFontSize: 12,
+                    maxFontSize: 15,
                     textAlign: TextAlign.left,
                   ),
                   FadeAnimatedTextKit(
@@ -96,16 +98,16 @@ Widget turkishParagraph() {
           maxLines: 15,
           textAlign: TextAlign.left,
         ),
-        Text(
+        AutoSizeText(
           "gelişime olan inancım.",
-          maxLines: 4,
           style: TextStyle(
             color: Colors.white,
-            fontSize: 15,
             height: 1.3,
             fontFamily: 'Inconsolata',
             fontWeight: FontWeight.w800,
           ),
+          minFontSize: 10,
+          maxFontSize: 15,
           textAlign: TextAlign.left,
         ),
       ],

@@ -1,16 +1,10 @@
-import 'dart:html';
-
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:emreyazar_com/config/constants.dart';
 import 'package:emreyazar_com/models/language.dart';
 import 'package:emreyazar_com/utils/utils.dart';
 import 'package:emreyazar_com/widgets/theme_inherited_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-// ignore: avoid_web_libraries_in_flutter
-import 'dart:html' as html;
 
 class HomePage extends StatefulWidget {
   HomePage({Key key}) : super(key: key);
@@ -149,7 +143,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(fontSize: 10, color: Colors.white70, fontFamily: 'Inconsolata', fontWeight: FontWeight.w700),
             ),
             hoverColor: Colors.white12,
-            onPressed: () => html.window.open("https://iamfurkan.com", 'iamfurkan'),
+            onPressed: () => launch("https://iamfurkan.com"),
           ),
         ),
       ],
@@ -160,12 +154,9 @@ class _HomePageState extends State<HomePage> {
     print({getScreenW().toString(), getScreenH().toString(), getRSizeW(650)});
     return SingleChildScrollView(
       child: Container(
-        height: 800,
+        height: 900,
         child: Stack(
           children: <Widget>[
-            Positioned(
-              child: Image.asset(Constants.logo),
-            ),
             Padding(
               padding: EdgeInsets.only(
                 left: getRSizeW(180),
@@ -173,109 +164,118 @@ class _HomePageState extends State<HomePage> {
                 right: getRSizeW(180),
                 bottom: getRSizeH(80),
               ),
-              child: Container(
-                child: Column(
-                  children: <Widget>[
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
+              child: Stack(
+                children: <Widget>[
+                  Positioned(
+                    child: Image.asset(Constants.logo),
+                  ),
+                  Container(
+                    child: Column(
                       children: <Widget>[
-                        FlatButton(
-                          hoverColor: Colors.white12,
-                          child: Text(
-                            sLang.translateToText,
-                            style: TextStyle(fontSize: 20, color: Colors.white70, fontFamily: 'Inconsolata', fontWeight: FontWeight.w700),
-                          ),
-                          onPressed: () => setState(() {
-                            sLang = sLang == languages["tr"] ? languages["en"] : languages["tr"];
-                          }),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: <Widget>[
+                            FlatButton(
+                              hoverColor: Colors.white12,
+                              child: Text(
+                                sLang.translateToText,
+                                style: TextStyle(fontSize: 20, color: Colors.white70, fontFamily: 'Inconsolata', fontWeight: FontWeight.w700),
+                              ),
+                              onPressed: () => setState(() {
+                                sLang = sLang == languages["tr"] ? languages["en"] : languages["tr"];
+                              }),
+                            ),
+                            Container(
+                              height: 30,
+                              width: 2,
+                              decoration: BoxDecoration(gradient: Constants.colorfulLine),
+                            ),
+                          ],
                         ),
-                        Container(
-                          height: 30,
-                          width: 2,
-                          decoration: BoxDecoration(gradient: Constants.colorfulLine),
+                        SizedBox(
+                          height: 50,
+                        ),
+                        Expanded(
+                          child: Column(
+                            children: [
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Container(
+                                    child: AutoSizeText(
+                                      sLang.welcomeText,
+                                      style: TextStyle(
+                                        color: Colors.white54,
+                                        fontFamily: 'Jura',
+                                        fontWeight: FontWeight.w200,
+                                        height: 1.2,
+                                      ),
+                                      //presetFontSizes: [85, 65, 45, 35, 25, 10],
+                                      maxLines: 2,
+                                      minFontSize: 60,
+                                      overflow: TextOverflow.visible,
+                                      textAlign: TextAlign.left,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 15,
+                                  ),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        height: 200,
+                                        width: 2,
+                                        decoration: BoxDecoration(gradient: Constants.colorfulLine),
+                                      ),
+                                      SizedBox(
+                                        width: 10,
+                                      ),
+                                      sLang.paragraph,
+                                    ],
+                                  ),
+                                ],
+                              ),
+                              Spacer(
+                                flex: 2,
+                              ),
+                              Container(
+                                height: 150,
+                                width: 150,
+                                child: Stack(
+                                  children: [
+                                    Positioned(
+                                      left: 0,
+                                      top: 0,
+                                      child: socialMediaButtons(name: "instagram", iconPath: Constants.instagram, link: "https://www.instagram.com/razayerme/"),
+                                    ),
+                                    Positioned(
+                                      right: 0,
+                                      top: 0,
+                                      child: socialMediaButtons(name: "twitter", iconPath: Constants.twitter, link: "https://twitter.com/razayerme/"),
+                                    ),
+                                    Positioned(
+                                      left: 0,
+                                      bottom: 0,
+                                      child: socialMediaButtons(name: "linkedin", iconPath: Constants.linkedin, link: "https://www.linkedin.com/in/razayerme/"),
+                                    ),
+                                    Positioned(
+                                      right: 0,
+                                      bottom: 0,
+                                      child: socialMediaButtons(name: "mail", iconPath: Constants.mail, link: "mailto:me@emreyazar.com"),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Spacer(),
+                            ],
+                          ),
                         ),
                       ],
                     ),
-                    SizedBox(
-                      height: 50,
-                    ),
-                    Expanded(
-                      child: Column(
-                        children: [
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              AutoSizeText(
-                                sLang.welcomeText,
-                                style: TextStyle(
-                                  color: Colors.white54,
-                                  fontFamily: 'Jura',
-                                  fontWeight: FontWeight.w200,
-                                  height: 1.2,
-                                  fontSize: 85,
-                                ),
-                                maxLines: 1,
-                                minFontSize: 30,
-                                maxFontSize: 60,
-                                textAlign: TextAlign.left,
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    height: 200,
-                                    width: 2,
-                                    decoration: BoxDecoration(gradient: Constants.colorfulLine),
-                                  ),
-                                  SizedBox(
-                                    width: 10,
-                                  ),
-                                  sLang.paragraph,
-                                ],
-                              ),
-                            ],
-                          ),
-                          Spacer(
-                            flex: 2,
-                          ),
-                          Container(
-                            height: 150,
-                            width: 150,
-                            child: Stack(
-                              children: [
-                                Positioned(
-                                  left: 0,
-                                  top: 0,
-                                  child: socialMediaButtons(name: "instagram", iconPath: Constants.instagram, link: "https://www.instagram.com/razayerme/"),
-                                ),
-                                Positioned(
-                                  right: 0,
-                                  top: 0,
-                                  child: socialMediaButtons(name: "twitter", iconPath: Constants.twitter, link: "https://twitter.com/razayerme/"),
-                                ),
-                                Positioned(
-                                  left: 0,
-                                  bottom: 0,
-                                  child: socialMediaButtons(name: "linkedin", iconPath: Constants.linkedin, link: "https://www.linkedin.com/in/razayerme/"),
-                                ),
-                                Positioned(
-                                  right: 0,
-                                  bottom: 0,
-                                  child: socialMediaButtons(name: "mail", iconPath: Constants.mail, link: "mailto:me@emreyazar.com"),
-                                ),
-                              ],
-                            ),
-                          ),
-                          Spacer(),
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             Positioned(
@@ -287,7 +287,7 @@ class _HomePageState extends State<HomePage> {
                   style: TextStyle(fontSize: 10, color: Colors.white70, fontFamily: 'Inconsolata', fontWeight: FontWeight.w700),
                 ),
                 hoverColor: Colors.white12,
-                onPressed: () => html.window.open("https://iamfurkan.com", 'iamfurkan'),
+                onPressed: () => launch("https://iamfurkan.com"),
               ),
             ),
           ],
