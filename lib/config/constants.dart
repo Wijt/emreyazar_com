@@ -8,9 +8,9 @@ class Constants {
     colors: [Colors.deepOrangeAccent, Colors.purple, Colors.blue],
   );
 
-  static const instagram = "social_media/instagram.png";
-  static const linkedin = "social_media/linkedin.png";
-  static const twitter = "social_media/twitter.png";
-  static const mail = "social_media/mail.png";
-  static const logo = "logo.png";
+  static const instagram = "assets/social_media/instagram.png";
+  static const linkedin = "assets/social_media/linkedin.png";
+  static const twitter = "assets/social_media/twitter.png";
+  static const mail = "assets/social_media/mail.png";
+  static const logo = "assets/logo.png";
 }

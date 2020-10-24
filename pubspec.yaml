@@ -24,6 +24,8 @@ dependencies:
   flutter:
     sdk: flutter
   animated_text_kit: ^2.4.1
+  url_launcher: ^5.7.8
+  auto_size_text: ^2.1.0
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -43,6 +45,8 @@ flutter:
 
   assets:
     - assets/
+    - assets/fonts/
+    - assets/social_media/
 
   fonts:
     - family: Open Sans
